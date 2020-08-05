@@ -26,7 +26,10 @@ export class AppComponent implements OnInit {
     const data = JSON.parse(event.dataTransfer.getData('element'));
     this.selectedElements.push(data);
     this.isOver = false;
-    console.log(data);
+    this.selectedElements = this.selectedElements.map(element => {
+      element.editting = false;
+      return element;
+    });
   }
 
   onDrag(event, element) {
@@ -36,5 +39,11 @@ export class AppComponent implements OnInit {
   allowDrop(event) {
     event.preventDefault();
     this.isOver = true;
+  }
+
+  toggleEdit(element) {
+    if (!element.editting) {
+      element.editting = !element.editting;
+    }
   }
 }

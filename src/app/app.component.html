@@ -1,11 +1,18 @@
 <div class="container">
   <div class="items-container">
     <div *ngFor="let e of elements" class="iterable-item" draggable="true"
-      (dragstart)="onDrag($event, e)"
+      (dragstart)="onDrag($event, e)" 
     >
       <div [ngSwitch]="e.celda">
         <button *ngSwitchCase="'Button'"> {{e.title}} </button>
-        <h1 *ngSwitchCase="'TitleOnly'"> {{e.title}} </h1>
+        <div *ngSwitchCase="'TitleOnly'">
+          <div *ngIf="!e.editting; else editTitle">
+            <h1> {{e.title}}</h1>
+          </div>
+          <ng-template #editTitle>
+            <input [(ngModel)]="e.title" />
+          </ng-template>
+        </div>
         <div *ngSwitchCase="'Header'" class="image-cell">
           <img [src]="e.imageback" height="40px" width="auto" />
           <img [src]="e.image" height="40px" width="auto" />
@@ -33,11 +40,18 @@
       <div class="border-container">
         <div class="border-top"></div>
       </div>
-      <div *ngFor="let e of selectedElements" class="dropzone">
+      <div *ngFor="let e of selectedElements" class="dropzone" (click)="toggleEdit(e)">
         <div [ngSwitch]="e.celda">
           <button *ngSwitchCase="'Button'"> {{e.title}} </button>
-          <h1 *ngSwitchCase="'TitleOnly'"> {{e.title}} </h1>
-          <div *ngSwitchCase="'Header'" class="image-cell">
+          
+          <div *ngSwitchCase="'TitleOnly'">
+            <div *ngIf="!e.editting; else editTitle">
+              <h1> {{e.title}}</h1>
+            </div>
+            <ng-template #editTitle>
+              <input [(ngModel)]="e.title" (keyup.enter)="e.editting = false"/>
+            </ng-template>
+          </div>          <div *ngSwitchCase="'Header'" class="image-cell">
             <img [src]="e.imageback" height="40px" width="auto" />
             <img [src]="e.image" height="40px" width="auto" />
           </div>
