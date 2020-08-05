@@ -1,0 +1,81 @@
+.container {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  column-gap: 20px;
+}
+
+h1, h3 {
+  margin: 0;
+}
+
+.items-container {
+  margin: 10px 20px;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.iphone-container {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+}
+
+.iphone {
+  border-radius: 10px;
+  height: 500px;
+  border: solid 3px black;
+  width: 300px;
+
+}
+
+.border-container {
+  display: flex;
+  justify-content: center;
+}
+
+.border-top {
+  border-bottom: 10px solid black;
+  border-radius: 10px;
+  width: 50%;
+  height: 10px;
+  justify-self: center;
+  box-sizing: border-box;
+}
+
+.iterable-item {
+  border: black solid 1px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-cell {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  color: blue;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.dropzone {
+  display: block;
+}
+
+.drop-listener {
+  height: 50px;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-image: url('https://img.icons8.com/all/500/add.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: -4px 3px 38px 12px rgba(30,58,143,0.71);
+  -moz-box-shadow: -4px 3px 38px 12px rgba(30,58,143,0.71);
+  box-shadow: -4px 3px 38px 12px rgba(30,58,143,0.71);
+}

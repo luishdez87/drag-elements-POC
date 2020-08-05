@@ -1,0 +1,158 @@
+{
+  "inicial": "FFFFFFF01P01",
+  "FFFFFFF01P01": [
+    {
+      "celda": "Header",
+      "image": "https://servicios.site/_DragAndDrop/batman.png",
+      "actualpage": 1,
+      "totalpages": 7,
+      "HeaderStepNofNN": "Paso {n} de {nn}",
+      "HeaderStepNofNNcolor": "#ff000000",
+      "titlecolor": "#ff00ec00",
+      "imageback": "https://servicios.site/_DragAndDrop/left.png"
+    },
+    {
+      "celda": "TitleSubtitle",
+      "title": "Aqui va el titulo a mostrar",
+      "titlecolor": "#ff000000",
+      "subtitle": "ESte seria el subtitulo que capturarian para mostrar como contenido de texto o mas que un subtitulo",
+      "subtitlecolor": "#ff000000"
+    },
+    {
+      "celda": "LottieAnim",
+      "lottieurl": "https://assets6.lottiefiles.com/packages/lf20_GppSUv.json",
+      "height": "250"
+    },
+    {
+      "celda": "TextFieldConfirmation",
+      "title": "Correo",
+      "titleconfirmation": "Confirme su correo",
+      "titlecolor": "#FF007076",
+      "required": true,
+      "id": "email",
+      "contenttype": "email",
+      "bgcolor": "#FFDEEDF2",
+      "bordercolor": "#ff2500A4",
+      "valuecolor": "#ff000000",
+      "regex": "(?:[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
+    },
+    {
+      "celda": "TextField",
+      "title": "Número telefonico",
+      "titlecolor": "#FF767676",
+      "required": true,
+      "id": "telvalue",
+      "contenttype": "number",
+      "bgcolor": "#FFDEEDF2",
+      "bordercolor": "#ff257FA4",
+      "valuecolor": "#ff000000",
+      "regex": ""
+    },
+    {
+      "celda": "TitleOnly",
+      "title": "Este solo es un titulo",
+      "titlecolor": "#ff000000"
+    },
+    {
+      "celda": "LinkCustomInfo",
+      "title": "vea el documento pdf",
+      "image": "https://servicios.site/san/img/doc-021-download.png",
+      "titlecolor": "#FFff0000",
+      "action": "modalwww",
+      "open": "https://mmegias.webs.uvigo.es/descargas/o-v-hoja.pdf",
+      "params": {
+        "usuario": "{[usernameloginvalue]}",
+        "psw": "{[passwordloginValue]}",
+        "authtoken": "123456789999",
+        "idapplication": "123AN456789999"
+      }
+    },
+    {
+      "celda": "Button",
+      "title": "Continuar",
+      "titlecolordisabled": "#FF007676",
+      "bgcolordisabled": "#ffffffff",
+      "bordercolordisabled": "#ffcccccc",
+      "titlecolor": "#ffffffff",
+      "bgcolor": "#ff00ec00",
+      "bordercolor": "#ff00ec00",
+      "action": "navigation",
+      "open": "FFFFFFF01P02"
+    }
+  ],
+  "FFFFFFF01P02": [
+    {
+      "celda": "Header",
+      "image": "https://servicios.site/_DragAndDrop/batman.png",
+      "actualpage": 1,
+      "totalpages": 7,
+      "HeaderStepNofNN": "Paso {n} de {nn}",
+      "HeaderStepNofNNcolor": "#ff000000",
+      "titlecolor": "#ff00ec00",
+      "imageback": "https://servicios.site/_DragAndDrop/left.png"
+    },
+    {
+      "celda": "TitleSubtitle",
+      "title": "Aqui va el titulo a mostrar",
+      "titlecolor": "#ff000000",
+      "subtitle": "ESte seria el subtitulo que capturarian para mostrar como contenido de texto o mas que un subtitulo",
+      "subtitlecolor": "#ff000000"
+    },
+    {
+      "celda": "TextFieldConfirmation",
+      "title": "Correo",
+      "titleconfirmation": "Confirme su correo",
+      "titlecolor": "#FF007076",
+      "required": true,
+      "id": "email",
+      "contenttype": "email",
+      "bgcolor": "#FFDEEDF2",
+      "bordercolor": "#ff2500A4",
+      "valuecolor": "#ff000000",
+      "regex": "(?:[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
+    },
+    {
+      "celda": "TextField",
+      "title": "Número telefonico",
+      "titlecolor": "#FF767676",
+      "required": true,
+      "id": "telvalue",
+      "contenttype": "number",
+      "bgcolor": "#FFDEEDF2",
+      "bordercolor": "#ff257FA4",
+      "valuecolor": "#ff000000",
+      "regex": ""
+    },
+    {
+      "celda": "TitleOnly",
+      "title": "Este solo es un titulo",
+      "titlecolor": "#ff000000"
+    },
+    {
+      "celda": "LinkCustomInfo",
+      "title": "vea el documento pdf",
+      "image": "https://servicios.site/san/img/doc-021-download.png",
+      "titlecolor": "#FFff0000",
+      "action": "modalwww",
+      "open": "https://mmegias.webs.uvigo.es/descargas/o-v-hoja.pdf",
+      "params": {
+        "usuario": "{[usernameloginvalue]}",
+        "psw": "{[passwordloginValue]}",
+        "authtoken": "123456789999",
+        "idapplication": "123AN456789999"
+      }
+    },
+    {
+      "celda": "Button",
+      "title": "Continuar",
+      "titlecolordisabled": "#FF007676",
+      "bgcolordisabled": "#ffffffff",
+      "bordercolordisabled": "#ffcccccc",
+      "titlecolor": "#ffffffff",
+      "bgcolor": "#ff00ec00",
+      "bordercolor": "#ff00ec00",
+      "action": "navigation",
+      "open": "FFFFFFF01P01"
+    }
+  ]
+}

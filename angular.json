@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "drag-btns"
+    }
+  },
+  "defaultProject": "drag-btns",
+  "cli": {
+    "analytics": "55d79504-8260-4a52-b7be-59ef7976fd74"
+  }
 }
