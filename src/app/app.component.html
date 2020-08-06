@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" [ngClass]="{'container': !isEditting, 'open-container': isEditting }" >
   <div class="items-container">
-    <div *ngFor="let e of elements" class="iterable-item" draggable="true"
+    <mat-card *ngFor="let e of elements" class="mat-elevation-z8 item" draggable="true"
       (dragstart)="onDrag($event, e)" 
     >
       <div [ngSwitch]="e.celda">
@@ -33,7 +33,7 @@
           <p class="link"> {{e.title}} </p>
         </div>
       </div>
-    </div>
+    </mat-card>
   </div>
   <div class="iphone-container">
     <div class="iphone" (drop)="dropDiv($event)" (dragover)="allowDrop($event)" (dragleave)="isOver = false" >
@@ -41,17 +41,15 @@
         <div class="border-top"></div>
       </div>
       <div *ngFor="let e of selectedElements" class="dropzone" (click)="toggleEdit(e)">
-        <div [ngSwitch]="e.celda">
+        <div [ngSwitch]="e.celda" class="cell" [ngClass]="{'shadowed': e === elementToEdit} " >
           <button *ngSwitchCase="'Button'"> {{e.title}} </button>
           
           <div *ngSwitchCase="'TitleOnly'">
-            <div *ngIf="!e.editting; else editTitle">
+            <div>
               <h1> {{e.title}}</h1>
             </div>
-            <ng-template #editTitle>
-              <input [(ngModel)]="e.title" (keyup.enter)="e.editting = false"/>
-            </ng-template>
-          </div>          <div *ngSwitchCase="'Header'" class="image-cell">
+          </div>          
+          <div *ngSwitchCase="'Header'" class="image-cell">
             <img [src]="e.imageback" height="40px" width="auto" />
             <img [src]="e.image" height="40px" width="auto" />
           </div>
@@ -68,11 +66,75 @@
             <input [placeholder]="e.titleconfirmation ? e.titleconfirmation : ''"/>
           </div>
           <div *ngSwitchCase="'LinkCustomInfo'">
-            <p class="link"> {{e.title}} </p>
+            <a [href]="e.open" class="link"> {{e.title}} </a>
           </div>
         </div>
       </div>
       <div *ngIf="isOver" class="drop-listener"></div>
     </div>
   </div>
+  <mat-card class="config-container" *ngIf="elementToEdit" @slide>
+    <h3>Configuraciones</h3>
+    <div [ngSwitch]="elementToEdit.celda">
+      <div *ngSwitchCase="'Button'"> 
+        <mat-form-field>
+          <input matInput [(ngModel)]="elementToEdit.title" placeholder="Título del botón"/>
+        </mat-form-field>
+      </div>          
+      <div *ngSwitchCase="'TitleOnly'">
+        <div>
+          <mat-form-field>
+            <input matInput [(ngModel)]="elementToEdit.title" placeholder="Título" />
+          </mat-form-field>
+        </div>
+      </div>          
+      <div *ngSwitchCase="'Header'" >
+        <div>
+          <img [src]="elementToEdit.image" height="40px" width="auto" />
+        </div>
+        <br>
+        <mat-form-field>
+          <input matInput [(ngModel)]="elementToEdit.image" placeholder="Url de la imagen"/>
+        </mat-form-field>
+      </div>
+      <div *ngSwitchCase="'TitleSubtitle'">
+        <mat-form-field>
+          <input matInput [(ngModel)]="elementToEdit.title" placeholder="Título" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="elementToEdit.subtitle" placeholder="Subtítulo" />
+        </mat-form-field>
+      </div>
+      <div *ngSwitchCase="'TextFieldConfirmation'">
+
+        <mat-form-field>
+          <input matInput [(ngModel)]="elementToEdit.title" placeholder="Titulo del input"/>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="elementToEdit.titleconfirmation" placeholder="Placeholder del input"/>
+        </mat-form-field>
+      </div>
+      <div *ngSwitchCase="'TextField'">
+        <mat-form-field>
+          <input matInput [(ngModel)]="elementToEdit.title" placeholder="Titulo del input"/>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="elementToEdit.titleconfirmation" placeholder="Placeholder del input"/>
+        </mat-form-field>
+      </div>
+      <div *ngSwitchCase="'LinkCustomInfo'">
+        <mat-form-field>
+          <input matInput [(ngModel)]="elementToEdit.title" placeholder="Texto del link" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="elementToEdit.open" placeholder="Link a abrir" />
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" (click)="save()" >
+        Guardar
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </div>

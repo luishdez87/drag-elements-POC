@@ -1,7 +1,32 @@
 .container {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 2fr 8fr;
   column-gap: 20px;
+  padding: 40px 10px;
+}
+
+.item {
+  margin-bottom: 30px;
+}
+
+.open-container {
+  display: grid;
+  grid-template-columns: 2fr 6fr 2fr;
+  column-gap: 20px;
+  padding: 40px 10px;
+}
+
+.cell:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 5px 6px rgba(130,154,250,1);
+  -moz-box-shadow: 0px 0px 5px 6px rgba(130,154,250,1);
+  box-shadow: 0px 0px 5px 6px rgba(130,154,250,1);
+}
+
+.shadowed {
+  -webkit-box-shadow: 0px 0px 5px 6px rgba(130,154,250,1);
+  -moz-box-shadow: 0px 0px 5px 6px rgba(130,154,250,1);
+  box-shadow: 0px 0px 5px 6px rgba(130,154,250,1);
 }
 
 h1, h3 {
@@ -12,6 +37,7 @@ h1, h3 {
   margin: 10px 20px;
   height: 500px;
   overflow-y: scroll;
+  padding: 10px;
 }
 
 .iphone-container {
@@ -25,7 +51,7 @@ h1, h3 {
   height: 500px;
   border: solid 3px black;
   width: 300px;
-
+  padding: 0 20px;
 }
 
 .border-container {
@@ -78,4 +104,8 @@ h1, h3 {
   -webkit-box-shadow: -4px 3px 38px 12px rgba(30,58,143,0.71);
   -moz-box-shadow: -4px 3px 38px 12px rgba(30,58,143,0.71);
   box-shadow: -4px 3px 38px 12px rgba(30,58,143,0.71);
+}
+
+.config-container {
+  padding: 10px 20px;
 }
