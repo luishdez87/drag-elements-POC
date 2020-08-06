@@ -42,6 +42,7 @@ h1, h3 {
 
 .iphone-container {
   display: flex;
+  flex-direction: column;
   justify-items: center;
   justify-content: center;
 }
@@ -108,4 +109,9 @@ h1, h3 {
 
 .config-container {
   padding: 10px 20px;
+}
+
+.save-button {
+  width: 150px;
+  margin-top: 20px;
 }

@@ -60,4 +60,8 @@ export class AppComponent implements OnInit {
       this.isEditting = false;
     }, 500);
   }
+
+  showSelectedList() {
+    alert(JSON.stringify(this.selectedElements));
+  }
 }
