@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import sampleJson from '../assets/pantallas.json';
 import { slide } from './slide';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +20,7 @@ export class AppComponent implements OnInit {
   isOver: boolean;
   isEditting: boolean;
 
-  constructor(private http: HttpClient) {}
+  constructor(private storage: AngularFireStorage) {}
 
 
   ngOnInit() {
@@ -62,6 +64,22 @@ export class AppComponent implements OnInit {
   }
 
   showSelectedList() {
-    alert(JSON.stringify(this.selectedElements));
+    const json = {
+      inicial: 'FFFFFFF01P01',
+      FFFFFFF01P01: this.selectedElements
+    };
+
+    const jsonString = JSON.stringify(json);
+    const blob = new Blob([jsonString], {type: 'application/json'});
+    const filePath = `/jsons/${Date.now()}.json`;
+    const task = this.storage.upload(filePath, blob);
+
+    // observe percentage changes
+    task.percentageChanges();
+    // get notified when the download URL is available
+    task.snapshotChanges().pipe(
+        finalize(() => alert('JSON enviado correctamente!') )
+      )
+    .subscribe();
   }
 }

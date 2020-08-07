@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "on-boarding-2020": {
+      "hosting": {
+        "drag-btns": [
+          "on-boarding-2020"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "on-boarding-2020"
+  }
+}
