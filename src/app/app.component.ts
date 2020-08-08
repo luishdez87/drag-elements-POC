@@ -88,6 +88,7 @@ export class AppComponent implements OnInit {
           fileRef.getDownloadURL().subscribe(url => {
             const notification = this.functions.httpsCallable('sendNotification');
 
+            // tokens tiene que ser una lista de tokens válidos
             notification({ url, tokens: ['123'] }).then((res) => {
               console.log(res.data);
             });
