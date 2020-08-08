@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
             const notification = this.functions.httpsCallable('sendNotification');
 
             // tokens tiene que ser una lista de tokens válidos
-            notification({ url, tokens: ['123'] }).then((res) => {
+            notification({ url, tokens: ['dQLxvgzlp0yclmjnkz4xnO:APA91bHoxmLDYbNuwyYbeOvIUOychqlbA7HwdZ-7otN3O6nAAVwew7UyZu19mBYuV4tiih3WKIglVtpoQG_CdajIdYbtmkEzNkR5ox8bEQPGYDuhALYm9QKt7IY3NK7Ln3OfKOwPl9oX'] }).then((res) => {
               console.log(res.data);
             });
           });
