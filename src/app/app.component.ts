@@ -5,6 +5,7 @@ import sampleJson from '../assets/pantallas.json';
 import { slide } from './slide';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,11 @@ export class AppComponent implements OnInit {
   elementToEdit: any;
   isOver: boolean;
   isEditting: boolean;
+  functions: any;
 
-  constructor(private storage: AngularFireStorage) {}
+  constructor(private storage: AngularFireStorage) {
+    this.functions = firebase.functions();
+  }
 
 
   ngOnInit() {
@@ -72,13 +76,23 @@ export class AppComponent implements OnInit {
     const jsonString = JSON.stringify(json);
     const blob = new Blob([jsonString], {type: 'application/json'});
     const filePath = `/jsons/${Date.now()}.json`;
+    const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, blob);
 
     // observe percentage changes
     task.percentageChanges();
     // get notified when the download URL is available
     task.snapshotChanges().pipe(
-        finalize(() => alert('JSON enviado correctamente!') )
+        finalize(() => {
+          alert('JSON enviado correctamente!');
+          fileRef.getDownloadURL().subscribe(url => {
+            const notification = this.functions.httpsCallable('sendNotification');
+
+            notification({ url, tokens: ['123'] }).then((res) => {
+              console.log(res.data);
+            });
+          });
+        })
       )
     .subscribe();
   }
