@@ -6,7 +6,7 @@ admin.initializeApp();
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.sendNotification = functions.https.onRequest((request, response) => {
-  const tokens = request.body.tokens;
+  const tokens = request.body.tokens || null;
   
   const payload = {
     notification: {
@@ -19,10 +19,19 @@ exports.sendNotification = functions.https.onRequest((request, response) => {
     },
     tokens
   }
-  admin.messaging().sendMulticast(payload)
+  if (tokens) {
+    admin.messaging().sendMulticast(payload)
+      .then((res) => {
+        response.send(res);
+        return res;
+      })
+      .catch((e) => {console.log(e)});
+  } else {
+    admin.messaging().sendToTopic('all')
     .then((res) => {
       response.send(res);
       return res;
     })
     .catch((e) => {console.log(e)});
+  }
 });

@@ -7,3 +7,19 @@ export const slide =
       animate(500)
     ])
   ]);
+
+export const fromRight =
+  trigger('fromRight', [
+    state('void', style({opacity: 0, transform: 'translateX(500px)'})),
+    transition(':enter', [
+      animate(500)
+    ])
+  ]);
+
+export const fromLeft =
+  trigger('fromLeft', [
+    state('void', style({opacity: 0, transform: 'translateX(-500px)'})),
+    transition(':enter', [
+      animate(500)
+    ])
+  ]);
